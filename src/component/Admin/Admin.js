@@ -13,7 +13,7 @@ const Admin = () => {
     const { register, handleSubmit } = useForm();
   const onSubmit = data =>{
     setAddSuccess(true);
-    fetch('http://localhost:5000/food',{
+    fetch('https://shrouded-chamber-83296.herokuapp.com/food',{
         method:'POST',
         headers:{
             'content-type':'application/json'
@@ -32,7 +32,7 @@ const Admin = () => {
     
   };
   useEffect(()=>{
-      fetch('http://localhost:5000/food')
+      fetch('https://shrouded-chamber-83296.herokuapp.com/food')
       .then(res=>res.json())
       .then(data=>setFoods(data));
       
@@ -40,7 +40,7 @@ const Admin = () => {
 
   const handleDelete=(id)=>{
       console.log(id);
-    fetch(`http://localhost:5000/food/${id}`,{
+    fetch(`https://shrouded-chamber-83296.herokuapp.com/food/${id}`,{
         method:'DELETE'
     })
     .then(res=>res.json())
@@ -72,6 +72,7 @@ const Admin = () => {
       }
     </form>
     <div>
+      <h2>Our Foods List</h2>
        <Table striped bordered hover variant="dark">
                 <thead>
                   <tr>
